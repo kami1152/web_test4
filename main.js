@@ -5,7 +5,7 @@ let startBtn = document.getElementById("startButton");
 let result = document.getElementById("result");
 let resetBtn = document.getElementById("resetButton");
 let chanceArea = document.getElementById("chance");
-let chance = 5;
+let chance = 10;
 let gameEnd = false;
 let inputNumList = [];
 let change = document.getElementById("changeImg");
@@ -14,7 +14,7 @@ startBtn.style.cursor="pointer";
 
 // 랜덤 번호 지정.
 function computerNum(){
-    randomNumber = Math.floor(Math.random()*100)+1;
+    randomNumber = Math.floor(Math.random()*1000)+1;
     console.log(randomNumber);
 }
 // 버튼
@@ -30,7 +30,7 @@ inputNum.addEventListener("focus", function(){
 function start(){
     let inputNumValue = inputNum.value;
 
-    if(inputNumValue > 100 || inputNumValue < 1){
+    if(inputNumValue > 1000 || inputNumValue < 1){
         result.textContent = "1부터 100사이의 숫자만 입력해주세요."
         return;
     }
@@ -77,7 +77,7 @@ function reset(){
     inputNumValue="";
     computerNum();
     gameEnd = false;
-    chance = 5;
+    chance = 10;
     startBtn.disabled =false;
     chanceArea.textContent =`남은 기회 : ${chance}`;
     inputNumList = [];
