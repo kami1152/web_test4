@@ -29,7 +29,7 @@ function start(){
     let inputNumValue = inputNum.value;
 
     if(inputNumValue > 1000 || inputNumValue < 1){
-        result.textContent = "1부터 100사이의 숫자만 입력해주세요."
+        result.textContent = "1부터 1000사이의 숫자만 입력해주세요."
         return;
     }
 
