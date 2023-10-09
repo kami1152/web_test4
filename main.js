@@ -67,6 +67,8 @@ function start(){
         startBtn.disabled= true;
         startBtn.style.backgroundColor="rgba(75, 87, 255, 0.4)";
         startBtn.style.cursor = "default";
+        result.textContent = "처음부터!!!";
+        reset();
     }
 };
 
