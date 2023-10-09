@@ -8,25 +8,23 @@ let chanceArea = document.getElementById("chance");
 let chance = 10;
 let gameEnd = false;
 let inputNumList = [];
-let change = document.getElementById("changeImg");
-
+let pp = false;
 startBtn.style.cursor="pointer";
 
-// 랜덤 번호 지정.
 function computerNum(){
     randomNumber = Math.floor(Math.random()*1000)+1;
     console.log(randomNumber);
 }
-// 버튼
+
 startBtn.addEventListener("click", start);
 resetBtn.addEventListener("click", reset);
 
-// 마우스로 입력창을 클릭할때 입력되어 있는 값을 리셋
+
 inputNum.addEventListener("focus", function(){
     inputNum.value="";
 })
 
-// startbutton을 눌렀을 때 반응
+
 function start(){
     let inputNumValue = inputNum.value;
 
@@ -45,16 +43,14 @@ function start(){
     chanceArea.textContent =`남은 기회 : ${chance}`;
 
     if(inputNumValue < randomNumber){
-        change.src="Images/up.gif"
         result.textContent = "UP!!";
         
     } else if(inputNumValue > randomNumber){
         result.textContent = "DOWN!!";
-        change.src="Images/down.gif"
     } else {
         result.textContent = "정답입니다!!!";
-        change.src="Images/ok.gif"
-        gameEnd=true;
+        pp =true;
+        gameEnd = true;
     }
 
     inputNumList.push(inputNumValue);
@@ -64,15 +60,20 @@ function start(){
     }
 
     if(gameEnd==true){
+      
         startBtn.disabled= true;
         startBtn.style.backgroundColor="rgba(75, 87, 255, 0.4)";
         startBtn.style.cursor = "default";
-        result.textContent = "처음부터!!!";
+        if(pp == true){
+          result.textContent = "정답입니다!!!";
+          pp=false;
+        }else{
+        result.textContent = "처음부터!!!";}
         reset();
     }
 };
 
-// 리셋버튼 함수
+
 function reset(){
     inputNumValue="";
     computerNum();
@@ -81,7 +82,6 @@ function reset(){
     startBtn.disabled =false;
     chanceArea.textContent =`남은 기회 : ${chance}`;
     inputNumList = [];
-    change.src="Images/go!.gif"
 };
-// 함수를 실행하는 것.
+
 computerNum();
