@@ -1,29 +1,26 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Random Number">
-    <meta property="og:description" content="자신있으면 맞춰봐!">
-    <meta property="og:image" content="Image/15457.jpg">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
-    <title>숫자 맞추기</title>
+    <title>간단한 로그인 페이지</title>
+    <link rel="stylesheet" href="style.css"> <!-- 스타일 시트를 연결합니다. (선택사항) -->
 </head>
 <body>
-    <div id="container">
-        <div id="secondContainer">
-            <h1>숫자맞추기!</h1>
-            <p id="result">도전</p>
-            <div id="chance">남은기회 : 10</div>
-            <div class="inputArea">
-                <input id="inputNumber" type="number" placeholder="1부터 1000까지 숫자를 입력하세요.">
-                <button id="startButton">입력!</button>
-                <button id="resetButton">RESET!</button>
+    <div class="login-container">
+        <h2>로그인</h2>
+        <form action="login.php" method="post"> <!-- 실제 서버로 전송할 폼 -->
+            <div class="form-group">
+                <label for="username">사용자 이름:</label>
+                <input type="text" id="username" name="username" required>
             </div>
-        </div>
+            <div class="form-group">
+                <label for="password">비밀번호:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button id="submit">로그인</button>
+        </form>
     </div>
-    <script src="main.js"></script>
+    <script src = "_login.js"></script>
 </body>
 </html>
